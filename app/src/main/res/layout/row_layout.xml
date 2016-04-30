@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_user_name"
         android:text="Name"
+        android:textStyle="bold"
         android:gravity="center"
         android:textColor="@android:color/white"
         />
@@ -24,8 +25,7 @@
         android:id="@+id/text_going_from"
         android:text="GoingFrom"
         android:gravity="center"
-        android:textColor="@android:color/white"
-        />
+        android:textColor="@android:color/white" />
 
     <TextView
 
