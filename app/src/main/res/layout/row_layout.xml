@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="210dp"
+    android:background="@drawable/background"
+    >
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_user_name"
+        android:text="Name"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_going_from"
+        android:text="GoingFrom"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_going_to"
+        android:text="GoingTo"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_date"
+        android:text="Date"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_time"
+        android:text="Time"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_seats"
+        android:text="Seats"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_price"
+        android:text="Price"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:background="@drawable/rideover_logo" android:layout_width="360dp"
+    android:layout_height="270dp" android:layout_gravity="center"
+    android:transitionGroup="false"
+    android:baselineAligned="false">
+
+</LinearLayout>-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background = "@drawable/background"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/rideover_logo_transparent_3"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

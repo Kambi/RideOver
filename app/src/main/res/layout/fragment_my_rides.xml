@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rahultheboss.rideover.MyRides">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="192dp"
+        android:layout_height="158dp"
+        android:text="Fragment for my Rides"
+        android:textSize="30dp"
+        android:layout_gravity="center" />
+
+</FrameLayout>

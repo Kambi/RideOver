@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.rahultheboss.rideover.GetARide">
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/gr_leaving_from_text_field"
+        android:textAlignment="center"
+        android:hint="Leaving From"
+        android:inputType="text"
+        android:background="@drawable/leaving_from_text_field"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/gr_going_to_text_field"
+        android:textAlignment="center"
+        android:inputType="text"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/going_to_text_field"
+        android:hint="Going To"
+        android:layout_below="@+id/gr_leaving_from_text_field"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/calender_text_field_2"
+        android:ems="10"
+        android:id="@+id/gr_date_text_field"
+
+        android:layout_marginBottom="10dp"
+        android:hint="Leaving Date"
+        android:layout_below="@+id/gr_going_to_text_field"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:background="@drawable/calender_button"
+        android:id="@+id/calender_button"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/gr_going_to_text_field"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:text="CLICK ME ^"
+        android:textSize="9dp"
+        android:textColor="#ffffff"
+        android:id="@+id/textView3"
+        android:background="#43a3b3"
+        android:layout_below="@+id/calender_button"
+        android:layout_toLeftOf="@+id/gr_date_text_field"
+        android:layout_alignLeft="@+id/gr_going_to_text_field"
+        android:layout_alignStart="@+id/gr_going_to_text_field" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:background="@drawable/find_rides_button"
+        android:id="@+id/find_rides_confirm"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/calender_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/all_rides_confirm"
+        android:background="@drawable/all_rides_button"
+        android:layout_below="@+id/find_rides_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+
+</RelativeLayout>
