@@ -83,13 +83,32 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
 
-                            if(hourOfDay < 12) {
-
+                            if(hourOfDay > 0 && hourOfDay < 12) {
                                 txtTime.setText(hourOfDay + ":" + minute + " AM");
+                                if(minute < 10){
+                                    txtTime.setText(hourOfDay + ":" + "0" + minute + " AM");
+                                }
                             }
-                            else{
+                            else if(hourOfDay == 0){
+                                txtTime.setText(hourOfDay+12 + ":" + minute + " AM");
+                                if(minute < 10){
+                                    txtTime.setText(hourOfDay+12 + ":" + "0" + minute + " AM");
+                                }
+                            }
+                            else if (hourOfDay == 12){
+                                txtTime.setText(hourOfDay + ":" + minute + " PM");
+                                if(minute < 10){
+                                    txtTime.setText(hourOfDay + ":" + "0" + minute + " PM");
+                                }
+                            }
+                            else {
                                 txtTime.setText(hourOfDay-12 + ":" + minute + " PM");
+                                if(minute < 10){
+                                    txtTime.setText(hourOfDay-12 + ":" + "0" + minute + " PM");
+                                }
                             }
+
+
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();

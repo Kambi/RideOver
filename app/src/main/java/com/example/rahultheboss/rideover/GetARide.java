@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -29,10 +31,11 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_get_aride);
         OnClickGetARide();
         OnClickViewAllRides();
-
         btnDatePicker=(Button)findViewById(R.id.calender_button);
         txtDate=(EditText)findViewById(R.id.gr_date_text_field);
         btnDatePicker.setOnClickListener(this);
+
+
 
     }
 
@@ -106,6 +109,21 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
 
                         }
 
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            public void onItemClick(AdapterView<?> parent, View view,
+                                                    int position, long id) {
+
+                                if(position == 1)
+                                {
+
+                                    Intent myIntent = new Intent(GetARide.this, HomeScreen.class);
+                                    startActivityForResult(myIntent, 0);
+                                }
+
+                            }
+                        });
+
+
                         //Show data
                        // showMessage("Rides", buffer.toString());
 
@@ -155,7 +173,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             date = res2.getString(4);
                             time = res2.getString(5);
                             seats = res2.getString(6);
-                            price = res2.getString(7);
+                            price = ("$" + res2.getString(7));
 
                             Rides r = new Rides();
                             r.setSr_name(name);
@@ -167,6 +185,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             r.setSr_price(price);
                             listDataAdapter.add(r);
                         }
+
 
                         //Show data
                         //showMessage("Rides", buffer.toString());
@@ -209,4 +228,6 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
             datePickerDialog.show();
         }
     }
+
+
 }

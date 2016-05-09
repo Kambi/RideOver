@@ -1,10 +1,17 @@
 package com.example.rahultheboss.rideover;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,6 +51,7 @@ public class ListDataAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View row = convertView;
+
         LayoutHandler layoutHandler;
         if(row == null)
         {
@@ -66,7 +74,9 @@ public class ListDataAdapter extends ArrayAdapter {
 
         }
 
-        Rides r = (Rides)this.getItem(position);
+
+
+        final Rides r = (Rides)this.getItem(position);
         layoutHandler.NAME.setText(r.getSr_name());
         layoutHandler.LEAVEFROM.setText(r.getSr_leaving_from());
         layoutHandler.GOTO.setText(r.getSr_going_to());
@@ -75,7 +85,24 @@ public class ListDataAdapter extends ArrayAdapter {
         layoutHandler.SEATS.setText(r.getSr_seats());
         layoutHandler.PRICE.setText(r.getSr_price());
 
+        Button gmap = (Button) row.findViewById(R.id.ConMap);
+        gmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("from",r.getSr_leaving_from());
+                extras.putString("to",r.getSr_going_to());
+                intent.putExtras(extras);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
+            }
+        });
+
 
         return row;
     }
+
+
 }
