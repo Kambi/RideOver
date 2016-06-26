@@ -7,6 +7,7 @@ public class Contact {
     String name;
     String email;
     String username;
+    String phoneNumber;
     String password;
 
 
@@ -39,7 +40,15 @@ public class Contact {
 
         return this.email;
     }
+    //phone number
+    public void setPhoneNumber(String phoneNumber){
 
+        this.phoneNumber = phoneNumber;
+    }
+    public String getPhoneNumber(){
+
+        return this.phoneNumber;
+    }
     //password
     public void setPassword(String password){
 
@@ -49,6 +58,8 @@ public class Contact {
 
         return this.password;
     }
+
+
 
 
 }

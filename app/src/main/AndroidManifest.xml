@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -69,6 +69,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".GetARide">
             <intent-filter>
                 <action android:name="com.example.rahultheboss.rideover.GetARide" />
@@ -84,6 +85,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SendMessage"
+            android:label="Send Message"></activity>
+        <activity
             android:name=".HomeScreenNav"
             android:label="@string/title_activity_home_screen_nav"
             android:theme="@style/AppTheme.NoActionBar">
@@ -93,6 +97,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

@@ -22,7 +22,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_EMAIL = "email";
+    private static final String COLUMN_PHONE_NUMBER = "phone_number";
     private static final String COLUMN_PASSWORD = "password";
+
 
 
     //table for share a ride activity
@@ -36,17 +38,20 @@ class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_RIDES_TIME = "sr_time";
     private static final String COLUMN_RIDES_SEATS = "sr_seats";
     private static final String COLUMN_RIDES_PRICE = "sr_price";
+    private static final String COLUMN_RIDES_PHONE_NUMBER = "sr_phone_number";
 
 
     SQLiteDatabase db;
 
 
     private static final String TABLE_CONTACTS_2 = "create table contacts (id integer primary key not null , "
-            + "name text not null, username text not null, email text not null, password text not null)";
+            + "name text not null, username text not null, email text not null, phone_number text not null, " +
+            "password text not null)";
 
     private static final String TABLE_RIDES_2 = "create table rides (id integer primary key not null , "
             + "sr_name text not null, sr_leaving_from text not null, sr_going_to text not null, sr_date text not null, " +
-            "sr_time text not null, sr_seats text not null, sr_price text not null)";
+            "sr_time text not null, sr_seats text not null, sr_price text not null, " +
+            "sr_phone_number text not null)";
 
 
     public DatabaseHelper(Context context){
@@ -69,7 +74,9 @@ class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME, c.getName());
         values.put(COLUMN_USERNAME, c.getUsernname());
         values.put(COLUMN_EMAIL, c.getEmail());
+        values.put(COLUMN_PHONE_NUMBER, c.getPhoneNumber());
         values.put(COLUMN_PASSWORD, c.getPassword());
+
 
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
@@ -115,6 +122,8 @@ class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+
     public void insertRides(Rides r){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -131,8 +140,8 @@ class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_RIDES_DATE, r.getSr_date());
         values.put(COLUMN_RIDES_TIME, r.getSr_time());
         values.put(COLUMN_RIDES_SEATS, r.getSr_seats());
-       // values.put(COLUMN_RIDES_SEATS, r.getSr_seats());
         values.put(COLUMN_RIDES_PRICE, r.getSr_price());
+        values.put(COLUMN_RIDES_PHONE_NUMBER, r.getSr_phoneNumber());
 
         db.insert(TABLE_RIDES, null, values);
         db.close();

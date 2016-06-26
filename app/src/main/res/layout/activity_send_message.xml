@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+
+    <TextView
+        android:background="@drawable/send_message_background"
+        android:layout_height="50dp" android:layout_width="300dp"
+        android:layout_alignStart="@+id/smsMessageET"
+        android:layout_alignLeft="@+id/smsMessageET"
+        android:layout_above="@+id/smsMessageET"
+        android:layout_marginBottom="44dp"
+        android:hint="Phone Number"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingTop="15dp" android:id="@+id/toPhoneNumberET"/>
+
+
+
+    <EditText
+        android:id="@+id/smsMessageET"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:hint = "Message"
+        android:textAlignment="center"
+        android:background="@drawable/send_message_background"
+        android:inputType="textMultiLine"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button android:id="@+id/sendSMSBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text=""
+        android:background="@drawable/send_button"
+        android:layout_below="@+id/smsMessageET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+
+</RelativeLayout>

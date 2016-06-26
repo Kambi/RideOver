@@ -90,9 +90,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in UCMerced and move the camera
-        LatLng UCMerced = new LatLng(37.365675, -120.431146);
-        mMap.addMarker(new MarkerOptions().position(UCMerced).title("University Of California, Merced"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UCMerced, 8));
+       // LatLng UCMerced = new LatLng(37.365675, -120.431146);
+       // mMap.addMarker(new MarkerOptions().position(UCMerced).title("University Of California, Merced"));
+       // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UCMerced, 8));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions

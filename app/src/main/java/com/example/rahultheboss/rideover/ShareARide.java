@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,7 +23,7 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
 
     EditText txtDate, txtTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
-
+    String sr_name_string;
 
 
     @Override
@@ -117,13 +118,14 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
 
 
     public void OnClickShareTheRide(){
+        //String sr_name_string;
         Button share_button = (Button)findViewById(R.id.share_confirm);
         share_button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         EditText sr_name = (EditText)findViewById(R.id.sr_name_text_field);
-                        String sr_name_string = sr_name.getText().toString();
+                        sr_name_string = sr_name.getText().toString();
 
                         EditText sr_leaving_from = (EditText)findViewById(R.id.sr_leaving_from_text_field);
                         String sr_leaving_from_string = sr_leaving_from.getText().toString();
@@ -137,6 +139,11 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
 
                         EditText sr_price = (EditText)findViewById(R.id.sr_price_text_field);
                         String sr_price_string = sr_price.getText().toString();
+
+
+
+                        EditText sr_phone_number = (EditText)findViewById(R.id.sr_phone_number_field);
+                        String sr_phone_number_string = sr_phone_number.getText().toString();
 
 
                         String sr_date = txtDate.getText().toString();
@@ -172,6 +179,11 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
                             Toast.makeText(getApplicationContext(), "Price Field is Empty! Please Type in Price.", Toast.LENGTH_LONG).show();
                             return;
                         }
+                        if(sr_phone_number_string.equals("")) {
+                            Toast.makeText(getApplicationContext(), "Phone Number Field is Empty! Please Type in Phone Number.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
 
 
                         //check validity of fields
@@ -181,7 +193,9 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
                             return;
                         }
                         else {
-                            Intent i = new Intent("com.example.rahultheboss.rideover.HomeScreen");
+                            Intent i = new Intent("com.example.rahultheboss.rideover.HomeScreenNav");
+                            i.putExtra("Username", sr_name_string);
+                            Log.d("Debug: ", "The username put in was " + sr_name_string);
                             startActivity(i);
 
                             Rides r = new Rides();
@@ -192,6 +206,7 @@ public class ShareARide extends AppCompatActivity implements View.OnClickListene
                             r.setSr_time(sr_time);
                             r.setSr_seats(sr_seats_string);
                             r.setSr_price(sr_price_string);
+                            r.setSr_phoneNumber(sr_phone_number_string);
 
                             helper.insertRides(r);
 

@@ -11,6 +11,7 @@ public class Rides {
     String sr_time;
     String sr_seats;
     String sr_price;
+    String sr_phoneNumber;
 
     public void setSr_name(String sr_name){
 
@@ -73,5 +74,16 @@ public class Rides {
     public String getSr_time(){
 
         return this.sr_time;
+    }
+
+
+
+    public void setSr_phoneNumber(String sr_phoneNumber){
+
+        this.sr_phoneNumber = sr_phoneNumber;
+    }
+    public String getSr_phoneNumber(){
+
+        return this.sr_phoneNumber;
     }
 }

@@ -26,6 +26,9 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    //Intent i = this.getIntent();
+
+    String user_name;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -65,9 +68,12 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         Log.d("Fragment", "Main fragment up");
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            user_name = getArguments().getString("Username");
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        Log.d("Debug: ", "in main fragment as " + user_name);
 
 
 
@@ -85,6 +91,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         getRide = (Button)v.findViewById(R.id.get_ride_nav);
         shareRide = (Button)v.findViewById(R.id.share_ride_nav);
         Log.d("Debug", "Created view");
+        Log.d("Debug: ", "in main fragment as " + user_name);
         shareRide.setOnClickListener(this);
         getRide.setOnClickListener(this);
         return v;
@@ -125,10 +132,13 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         switch(v.getId()){
             case R.id.get_ride_nav:
                 Intent get = new Intent("com.example.rahultheboss.rideover.GetARide");
+                get.putExtra("Username", user_name);
                 startActivity(get);
+
                 break;
             case R.id.share_ride_nav:
                 Intent share = new Intent("com.example.rahultheboss.rideover.ShareARide");
+                //get.putExtra("Username", user_name);
                 startActivity(share);
                 break;
         }

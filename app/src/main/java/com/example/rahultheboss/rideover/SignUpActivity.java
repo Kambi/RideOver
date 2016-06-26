@@ -33,13 +33,13 @@ public class SignUpActivity extends AppCompatActivity {
                 EditText username = (EditText)findViewById(R.id.username_text_field);
                 EditText email = (EditText)findViewById(R.id.email_text_field);
                 EditText password = (EditText)findViewById(R.id.password_text_field);
-
+                EditText phoneNumber = (EditText)findViewById(R.id.phone_number_text_field);
 
                 String name_string = name.getText().toString();
                 String username_string = username.getText().toString();
                 String email_string = email.getText().toString();
                 String password_string = password.getText().toString();
-
+                String phone_number_string = phoneNumber.getText().toString();
 
                 //Intent login = new Intent("com.example.rahultheboss.rideover.LoginActivity");
                 //startActivity(login);
@@ -69,6 +69,12 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(phone_number_string.equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Phone Number Field is Empty! Please Type in Phone Number.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 //checks for validity of the fields. Example: password, email, and username fields need to be correct to signup
                 if(helper.checkUsername(username_string) == true){
                     Toast.makeText(getApplicationContext(), "This username already exists. Please Enter Different Username", Toast.LENGTH_LONG).show();
@@ -84,17 +90,20 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password is too short. Minimum Length of password is 4", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Intent login = new Intent("com.example.rahultheboss.rideover.LoginActivity");
-                    startActivity(login);
-                    Toast.makeText(getApplicationContext(), "SignUp Successful.", Toast.LENGTH_LONG).show();
+
 
                     Contact c = new Contact();
                     c.setName(name_string);
                     c.setUsername(username_string);
                     c.setEmail(email_string);
                     c.setPassword(password_string);
+                    c.setPhoneNumber(phone_number_string);
 
                     helper.insertContact(c);
+
+                    Intent login = new Intent("com.example.rahultheboss.rideover.LoginActivity");
+                    startActivity(login);
+                    Toast.makeText(getApplicationContext(), "SignUp Successful.", Toast.LENGTH_LONG).show();
                 }
 
 

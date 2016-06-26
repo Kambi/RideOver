@@ -3,16 +3,16 @@ package com.example.rahultheboss.rideover;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -24,6 +24,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
     private int mYear, mMonth, mDay;
     ListView listView;
     ListDataAdapter listDataAdapter;
+    String new_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,11 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
         btnDatePicker=(Button)findViewById(R.id.calender_button);
         txtDate=(EditText)findViewById(R.id.gr_date_text_field);
         btnDatePicker.setOnClickListener(this);
-
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.getString("Username")!= null){
+            new_user = bundle.getString("Username");
+            Log.d("Debug: ", new_user);
+        }
 
 
     }
@@ -65,7 +70,8 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
 
                         setContentView(R.layout.activity_data_list);
                         listView = (ListView)findViewById(R.id.list_view);
-                        listDataAdapter = new ListDataAdapter(getApplicationContext(),R.layout.row_layout);
+                        listDataAdapter = new ListDataAdapter(getApplicationContext(),R.layout.row_layout, new_user);
+                        Log.d("Debug: ", "In get a ride the user name is " + listDataAdapter.new_user);
                         listView.setAdapter(listDataAdapter);
 
                         Cursor res = myDb.getAllData(gr_leaving_from_string, gr_going_to_string, gr_date);
@@ -76,7 +82,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             return;
                         }
 
-                        String name, leavingfrom, goingto, date, time, seats, price;
+                        String name, leavingfrom, goingto, date, time, seats, price, phoneNumber;
                         //StringBuffer buffer = new StringBuffer();
                         while(res.moveToNext()) {
                     /*        //buffer.append(res.getString(0));
@@ -96,6 +102,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             time = res.getString(5);
                             seats = res.getString(6);
                             price = res.getString(7);
+                            phoneNumber = res.getString(8);
 
                             Rides r = new Rides();
                             r.setSr_name(name);
@@ -105,6 +112,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             r.setSr_time(time);
                             r.setSr_seats(seats);
                             r.setSr_price(price);
+                            r.setSr_phoneNumber(phoneNumber);
                             listDataAdapter.add(r);
 
                         }
@@ -117,6 +125,8 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                                 {
 
                                     Intent myIntent = new Intent(GetARide.this, HomeScreen.class);
+                                    myIntent.putExtra("Username", new_user);
+                                    Log.d("Debug: ", "Going from get a ride to home screen");
                                     startActivityForResult(myIntent, 0);
                                 }
 
@@ -143,7 +153,8 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
 
                         setContentView(R.layout.activity_data_list);
                         listView = (ListView)findViewById(R.id.list_view);
-                        listDataAdapter = new ListDataAdapter(getApplicationContext(),R.layout.row_layout);
+                        listDataAdapter = new ListDataAdapter(getApplicationContext(),R.layout.row_layout, new_user);
+                        Log.d("Debug: ", "In get all ride the user name is " + listDataAdapter.new_user);
                         listView.setAdapter(listDataAdapter);
 
                         Cursor res2 = myDb.getAllTheData();
@@ -154,7 +165,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             return;
                         }
 
-                        String name, leavingfrom, goingto, date, time, seats, price;
+                        String name, leavingfrom, goingto, date, time, seats, price, phoneNumber;
 
                        // StringBuffer buffer = new StringBuffer();
                         while(res2.moveToNext()) {
@@ -174,6 +185,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             time = res2.getString(5);
                             seats = res2.getString(6);
                             price = ("$" + res2.getString(7));
+                            phoneNumber = res2.getString(8);
 
                             Rides r = new Rides();
                             r.setSr_name(name);
@@ -183,6 +195,7 @@ public class GetARide extends AppCompatActivity implements View.OnClickListener 
                             r.setSr_time(time);
                             r.setSr_seats(seats);
                             r.setSr_price(price);
+                            r.setSr_phoneNumber(phoneNumber);
                             listDataAdapter.add(r);
                         }
 

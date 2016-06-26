@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="385dp"
+    android:layout_height="900dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context="com.example.rahultheboss.rideover.ShareARide"
+        android:focusableInTouchMode="true"
+        tools:context="com.example.rahultheboss.rideover.ShareARide"
     android:weightSum="1">
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:id="@+id/sr_name_text_field"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="54dp"
         android:hint="Name"
         android:inputType="text"
         android:textAlignment="center"
-        android:background="@drawable/name_field"/>
+        android:background="@drawable/name_field"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
         android:id="@+id/sr_leaving_from_text_field"
         android:hint="Leaving From"
         android:inputType="text"
         android:textAlignment="center"
         android:background="@drawable/leaving_from_text_field"
+        android:layout_marginTop="31dp"
         android:layout_below="@+id/sr_name_text_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="350dp"
+        android:paddingBottom="15dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:id="@+id/sr_going_to_text_field"
-        android:layout_marginBottom="10dp"
         android:hint="Going To"
+
         android:inputType="text"
         android:textAlignment="center"
         android:background="@drawable/going_to_text_field"
+        android:layout_marginTop="47dp"
         android:layout_below="@+id/sr_leaving_from_text_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -53,25 +65,25 @@
         android:id="@+id/sr_date_text_field"
         android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/calender_text_field_2"
         android:hint="Date of Departure"
         android:textAlignment="center"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/sr_going_to_text_field"
-        android:layout_alignRight="@+id/sr_going_to_text_field"
-        android:layout_alignEnd="@+id/sr_going_to_text_field" />
+        android:layout_toRightOf="@+id/calender_button"
+        android:layout_toEndOf="@+id/calender_button" />
 
     <EditText
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:id="@+id/sr_time_text_field"
-        android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:background="@drawable/calender_text_field_2"
         android:hint="Time of Departure"
+        android:layout_marginTop="46dp"
         android:layout_below="@+id/sr_date_text_field"
-        android:layout_alignRight="@+id/sr_date_text_field"
-        android:layout_alignEnd="@+id/sr_date_text_field" />
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,20 +93,22 @@
         android:textColor="#ffffff"
         android:id="@+id/textView2"
         android:background="#43a3b3"
-        android:layout_alignBottom="@+id/sr_date_text_field"
-        android:layout_toLeftOf="@+id/sr_date_text_field"
-        android:layout_alignLeft="@+id/calender_button"
-        android:layout_alignStart="@+id/calender_button" />
+        android:layout_below="@+id/clock_button"
+        android:layout_alignRight="@+id/clock_button"
+        android:layout_alignEnd="@+id/clock_button"
+        android:layout_alignParentLeft="true"
+         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:background="@drawable/calender_button"
         android:id="@+id/calender_button"
-        android:layout_above="@+id/textView2"
-        android:layout_below="@+id/sr_going_to_text_field"
-        android:layout_toLeftOf="@+id/sr_date_text_field"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
+        android:layout_alignTop="@+id/sr_date_text_field"
+        android:layout_above="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,19 +118,17 @@
         android:textColor="#ffffff"
         android:id="@+id/textView3"
         android:background="#43a3b3"
-        android:layout_toLeftOf="@+id/sr_time_text_field"
-        android:layout_below="@+id/clock_button"
+        android:layout_alignBottom="@+id/sr_date_text_field"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+       />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:id="@+id/clock_button"
         android:background="@drawable/clock_button"
         android:layout_alignTop="@+id/sr_time_text_field"
-        android:layout_toLeftOf="@+id/sr_time_text_field"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/sr_date_text_field" />
     <Button
         android:layout_width="120dp"
         android:layout_height="50dp"
@@ -125,38 +137,56 @@
         android:id="@+id/share_confirm"
         android:layout_gravity="center_horizontal"
         android:onClick="addRide"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/sr_phone_number_field"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:inputType="number"
+        android:paddingBottom="15dp"
         android:ems="10"
         android:background="@drawable/number_of_seats_text_field"
         android:id="@+id/sr_seats_text_field"
         android:hint="Number of Seats"
-        android:layout_marginBottom="10dp"
         android:textAlignment="center"
+
+        android:layout_marginTop="43dp"
         android:layout_below="@+id/sr_time_text_field"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/sr_time_text_field"
+        android:layout_alignEnd="@+id/sr_time_text_field" />
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
+        android:paddingTop="15dp"
         android:inputType="number"
+        android:paddingBottom="15dp"
         android:background="@drawable/price_text_field"
         android:ems="10"
         android:hint="Price"
-        android:layout_marginBottom="10dp"
         android:id="@+id/sr_price_text_field"
         android:textAlignment="center"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/sr_seats_text_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+        <EditText
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/sr_phone_number_field"
+            android:background="@drawable/phone_number_field"
+            android:layout_marginTop="38dp"
+            android:hint="Phone Number"
+            android:textAlignment="center"
+            android:layout_below="@+id/sr_price_text_field"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

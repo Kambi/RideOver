@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="210dp"
+    android:layout_height="260dp"
     android:background="@drawable/rideover_lists_background_2"
     >
 
@@ -12,10 +12,10 @@
         android:text="Name"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="33dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/text_seats"
-        android:layout_alignStart="@+id/text_seats" />
+        android:layout_toRightOf="@+id/ConMap"
+        android:layout_toEndOf="@+id/ConMap" />
 
     <TextView
 
@@ -74,8 +74,8 @@
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:layout_below="@+id/text_time"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/text_price"
+        android:layout_alignStart="@+id/text_price" />
 
     <TextView
 
@@ -86,8 +86,8 @@
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:layout_below="@+id/text_seats"
-        android:layout_alignLeft="@+id/text_seats"
-        android:layout_alignStart="@+id/text_seats" />
+        android:layout_alignLeft="@+id/text_phone_number"
+        android:layout_alignStart="@+id/text_phone_number" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -156,14 +156,47 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text=""
+        android:background = "@drawable/google_maps_icon"
+        android:id="@+id/ConMap"
+        android:layout_alignTop="@+id/send_message_button"
+        android:layout_toLeftOf="@+id/text_price"
+        android:layout_toStartOf="@+id/text_price" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text=""
+        android:background="@drawable/message_icon"
+        android:id="@+id/send_message_button"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_marginBottom="26dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="See on MAP"
-        android:id="@+id/ConMap"
-        android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"
+        android:text="Phone Number: "
+        android:id="@+id/textView11"
+        android:layout_below="@+id/textView10"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10" />
+
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_phone_number"
+        android:text="Phone Number"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/text_price"
-        android:layout_alignRight="@+id/text_price"
-        android:layout_alignEnd="@+id/text_price" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp" />
 
 </RelativeLayout>

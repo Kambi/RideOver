@@ -48,7 +48,10 @@ public class LoginActivity extends AppCompatActivity  {
 
                 if(final_password.equals(password_string)){
                     Intent login = new Intent("com.example.rahultheboss.rideover.HomeScreenNav");
-                    //login.putExtra("Username", username_string);
+                    //Intent login = new Intent(LoginActivity.this, HomeScreenNav.class);
+                    login.putExtra("Username", username_string);
+
+                    //logd("Debug: ", username_string);
                     startActivity(login);
                     Toast x = Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT);
                     x.show();
