@@ -1,2 +1,3 @@
 # RideOver
 RideOver: Ill be Right Over Mobile App
+RideOver will initially be a platform for university students to be able to find affordable and convenient rides to locations that are local as well as far away. This will be very helpful for students to move around areas nearby whether it be to run important errands or to get some time in the city near campus. Not only will this be useful for nearby locations, it is also extremely convenient to find rides to go somewhere further away from campus such as travelling back home. Since students are typically on a tight budget, this will be a great way for them to find people from their university who can take them to a mutual destination.
